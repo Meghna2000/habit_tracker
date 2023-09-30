@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-bu92d)&%y@w5(-^j0$skmg8)=y0y+mw^r^%+d3&d8w8)sqq+t9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -80,8 +80,11 @@ WSGI_APPLICATION = 'habit_tracker.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'meghnachakra2000$habit_tracker_db',
+        'USER':'meghnachakra2000',
+        'PASSWORD':'zen1357$230vio',
+        'HOST':'meghnachakra2000.mysql.pythonanywhere-services.com'
     }
 }
 

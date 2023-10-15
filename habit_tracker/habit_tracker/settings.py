@@ -79,13 +79,13 @@ WSGI_APPLICATION = 'habit_tracker.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'meghnachakra2000$habit_tracker_db',
-        'USER':'meghnachakra2000',
-        'PASSWORD':'zen1357$230vio',
-        'HOST':'meghnachakra2000.mysql.pythonanywhere-services.com'
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'meghnachakra2000$habit_tracker_db',
+    #     'USER':'meghnachakra2000',
+    #     'PASSWORD':'zen1357$230vio',
+    #     'HOST':'meghnachakra2000.mysql.pythonanywhere-services.com'
+    # }
 }
 
 

@@ -13,12 +13,14 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import sys 
+import yaml
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_DIR =  BASE_DIR.parent
 sys.path.append(str(PROJECT_DIR))
 print('base directory',BASE_DIR)
 print('project_directory',PROJECT_DIR)
+import src.src_controls.path_config as path_config
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -32,7 +34,12 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
+##db credentials
+with open(os.path.join(path_config.CONFIG_DIR,'db_credentials.yaml'),'rb') as f:
+    db_credentials = yaml.safe_load(f)
 
+current_db_credentials = db_credentials['local_db'] 
+print("db name",current_db_credentials['NAME'])
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -79,13 +86,13 @@ WSGI_APPLICATION = 'habit_tracker.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'meghnachakra2000$habit_tracker_db',
-    #     'USER':'meghnachakra2000',
-    #     'PASSWORD':'zen1357$230vio',
-    #     'HOST':'meghnachakra2000.mysql.pythonanywhere-services.com'
-    # }
+    'default': {
+        'ENGINE': current_db_credentials['ENGINE'],
+        'NAME': current_db_credentials['NAME'],
+        'USER':current_db_credentials['USER'],
+        'PASSWORD':current_db_credentials['PASSWORD'],
+        'HOST':current_db_credentials['HOST']
+    }
 }
 
 

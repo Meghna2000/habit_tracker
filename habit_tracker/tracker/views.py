@@ -24,7 +24,10 @@ def get_habit_stats(request):
 def habit_journal(request):
     return render(request,'habit_journal.html')
 
-class HabitFormView(View):
+class FormView(View):
+    def create_form_view(self,row_dict):
+        return
+        
     def get_new_habit_info(self,action):
         return
     def track_existing_habit(self,action):
